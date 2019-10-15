@@ -26,7 +26,6 @@ public class CorsFilter implements Filter {
         } else {
             chain.doFilter(req, res);
         }
-
-        chain.doFilter(request, response);
+        
     }
 }
