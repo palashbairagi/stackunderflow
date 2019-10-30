@@ -23,6 +23,13 @@ public class InterceptorConfig extends WebMvcConfigurerAdapter {
         excludePatterns.add("/**/user/register");
         excludePatterns.add("/**/user/login");
         excludePatterns.add("/**/tags");
+        excludePatterns.add("/**/swagger-ui.html/**");
+        excludePatterns.add("/v2/api-docs");
+        excludePatterns.add("/configuration/ui");
+        excludePatterns.add("/swagger-resources/**");
+        excludePatterns.add("/configuration/security");
+        excludePatterns.add("/swagger-ui.html");
+        excludePatterns.add("/webjars/**");
 
         registry.addInterceptor(getValidateUserInterceptor()).addPathPatterns("/**").excludePathPatterns(excludePatterns);
     }

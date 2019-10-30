@@ -1,6 +1,7 @@
 package com.cp.stackunderflow.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
@@ -21,9 +22,11 @@ public class Question {
     @JsonIgnore
     private String status;
 
+    @ApiModelProperty(required = false, hidden = true)
     @UpdateTimestamp
     private LocalDateTime lastUpdate;
 
+    @ApiModelProperty(required = false, hidden = true)
     @ManyToOne
     private User user;
 
@@ -33,10 +36,12 @@ public class Question {
             inverseJoinColumns = { @JoinColumn(name = "tag_id")} )
     private Set<Tag> tags;
 
+    @ApiModelProperty(required = false, hidden = true)
     @OneToMany
     @JoinColumn(name = "question_id")
     private List<QuestionComment> comments;
 
+    @ApiModelProperty(required = false, hidden = true)
     @OneToMany
     @JoinColumn(name = "question_id")
     private List<Answer> answers;
@@ -89,11 +94,11 @@ public class Question {
         this.tags = tags;
     }
 
-    public List<QuestionComment> getQuestionComment() {
+    public List<QuestionComment> getComments() {
         return comments;
     }
 
-    public void setQuestionComment(List<QuestionComment> comments) {
+    public void setComments(List<QuestionComment> comments) {
         this.comments = comments;
     }
 

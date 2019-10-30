@@ -1,7 +1,10 @@
 package com.cp.stackunderflow.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiParam;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -18,9 +21,11 @@ public class AnswerComment {
     @JsonIgnore
     private String status;
 
+    @ApiModelProperty(required = false, hidden = true)
     @UpdateTimestamp
     private LocalDateTime lastUpdate;
 
+    @ApiModelProperty(required = false, hidden = true)
     @ManyToOne
     private User user;
 

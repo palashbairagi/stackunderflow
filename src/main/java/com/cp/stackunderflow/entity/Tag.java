@@ -1,6 +1,7 @@
 package com.cp.stackunderflow.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -12,6 +13,8 @@ public class Tag {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @ApiModelProperty(readOnly = true)
     private String name;
 
     @JsonIgnore

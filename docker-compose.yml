@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+  stackoverflow:
+    image: stackunderflow:v1
+    links:
+      - mysqldb
+    ports:
+      - "1234:1234"
+
+  mysqldb:
+    image: mysql:8
+

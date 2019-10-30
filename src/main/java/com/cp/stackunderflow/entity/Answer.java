@@ -1,6 +1,7 @@
 package com.cp.stackunderflow.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
@@ -19,15 +20,18 @@ public class Answer {
     @JsonIgnore
     private String status;
 
+    @ApiModelProperty(required = false, hidden = true)
     @UpdateTimestamp
     private LocalDateTime lastUpdate;
 
+    @ApiModelProperty(required = false, hidden = true)
     @ManyToOne
     private User user;
 
     @Column(name = "question_id")
     private Integer questionId;
 
+    @ApiModelProperty(required = false, hidden = true)
     @OneToMany
     @JoinColumn(name = "answer_id")
     private List<AnswerComment> comments;

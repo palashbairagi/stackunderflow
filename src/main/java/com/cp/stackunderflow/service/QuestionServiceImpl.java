@@ -163,7 +163,7 @@ public class QuestionServiceImpl implements QuestionService {
         questionModel.setTags(question.getTags());
 
         List<CommentModel> commentModels = new ArrayList<>();
-        List<QuestionComment> comments = question.getQuestionComment();
+        List<QuestionComment> comments = question.getComments();
 
         for (QuestionComment questionComment: comments) {
             CommentModel commentModel = new CommentModel();
